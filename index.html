@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Javier García - Red Fox Argentina">
+        <link rel="stylesheet" href="./css/bootstrap-5.1.1-dist/bootstrap-5.1.1-dist/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="./css/style.css"> -->
+        <title>Prtero Eléctrico</title>
+    </head>
+
+    <!--  CONSIGNA:
+        ~ 2 visores, uno para Piso (2 dígitos), otro para Depto (1 dígito).
+        ~ Pisos del 00 al 42.
+        ~ Deptos del 1 al 8.
+        ~ BTN LLAMAR muestra mensaje visor ppal "Lamando al dpto NN, piso N".
+        ~ BTN BORRAR borra todos los visores.
+        ~ Si piso y/o dpto no existe, mostrar mensaje error en visor ppal.
+    -->
+
+    <body>
+        <header>
+            <nav class="navbar navbar-dark navbar-expand-md bg-dark fixed-top p-3">
+                <div class="container">
+                    <a class="text-decoration-none" href="index.html">
+                        <span class="navbar-brand fs-3">Práctica <strong class="text-warning">JS</strong></span>
+                    </a>
+                </div>
+            </nav>
+        </header>
+        
+        <main class="mt-5 pt-4">
+            <section class="container pt-5">
+                <form action="" id="porteroElectrico" class="row g-3 mb-3 mx-5">
+                    <div class="col col-md-6 px-0 mx-auto">
+
+                        <!-- Marco superior -->
+                        <div class="col-12 bg-dark py-3 mb-2">
+                            <p></p>
+                        </div>
+    
+                        <!-- Panel Central -->
+                        <div class="col-12 bg-light">
+                            <!-- Marca -->
+                            <div class="col-12 px-3">
+                                <p class="mb-0"><strong><i>ComIT</i></strong></p>
+                            </div>
+
+                            <!-- Cámara -->
+                            <!-- <div class="col-12"> -->
+                                <div class="row row-col-12 justify-content-center">
+                                    <div class="col-1 mx-auto">
+                                        <button class="border border-dark border-5 rounded-circle bg-primary p-2 pe-none" width="100px"></button>
+                                    </div>
+                                </div>
+                            <!-- </div> -->
+                            
+                            <!-- Teclado y Displays -->
+                            <div class="col-8 mx-auto">
+                                <!-- Displays -->
+                                <div class="row row-col-12 justify-content-center">
+                                    <input type="text" readonly value="_ _" class="col-3 px-1 m-2 text-end pe-none" id="apartmentDisplay">
+                                    <div class="col-1 px-1"></div>
+                                    <input type="text" readonly value="_" class="col-3 px-1 m-2 text-end pe-none" id="floorDisplay">
+                                    <input type="text" readonly value="" class="col-8 px-1 m-2 text-end pe-none" id="mainDisplay">
+                                </div>
+
+                                <div class="row row-col-12 justify-content-center">
+                                    <input type="button" class="col-1 rounded-circle px-1 m-2" value="7" onclick="marcar(value)">
+                                    <input type="button" class="col-1 rounded-circle px-1 m-2" value="8" onclick="marcar(value)">
+                                    <input type="button" class="col-1 rounded-circle px-1 m-2" value="9" onclick="marcar(value)">
+                                </div>
+                                <div class="row row-col-12 justify-content-center">
+                                    <input type="button" class="col-1 rounded-circle px-1 m-2" value="4" onclick="marcar(value)">
+                                    <input type="button" class="col-1 rounded-circle px-1 m-2" value="5" onclick="marcar(value)">
+                                    <input type="button" class="col-1 rounded-circle px-1 m-2" value="6" onclick="marcar(value)">
+                                </div>
+                                <div class="row row-col-12 justify-content-center">
+                                    <input type="button" class="col-1 rounded-circle px-1 m-2" value="1" onclick="marcar(value)">
+                                    <input type="button" class="col-1 rounded-circle px-1 m-2" value="2" onclick="marcar(value)">
+                                    <input type="button" class="col-1 rounded-circle px-1 m-2" value="3" onclick="marcar(value)">
+                                </div>
+                                <div class="row row-col-12 justify-content-center">
+                                    <input type="button" class="col-3 bg-danger m-2" value="Borrar" onclick="borrar()">
+                                    <input type="button" class="col-1 rounded-circle px-1 m-2" value="0" onclick="marcar(value)">
+                                    <input type="button" class="col-3 bg-success m-2" value="LLAMAR" onclick="llamar()">
+                                </div>
+    
+    
+    
+                            </div>
+    
+                            <!-- Altavoz -->
+                            <div class="col-8 mx-auto">
+                                <div class="row">
+                                    <!-- QUITAR BORDES -->
+                                    <div class="col-4">
+                                        <button class="col-12 bg-dark mb-1 rounded-pill pe-none"></button>
+                                        <button class="col-12 bg-dark mb-1 rounded-pill pe-none"></button>
+                                        <button class="col-12 bg-dark mb-1 rounded-pill pe-none"></button>
+                                        <button class="col-12 bg-dark mb-1 rounded-pill pe-none"></button>
+                                        <button class="col-12 bg-dark mb-1 rounded-pill pe-none"></button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="col-12 bg-dark mb-1 rounded-pill pe-none"></button>
+                                        <button class="col-12 bg-dark mb-1 rounded-pill pe-none"></button>
+                                        <button class="col-12 bg-dark mb-1 rounded-pill pe-none"></button>
+                                        <button class="col-12 bg-dark mb-1 rounded-pill pe-none"></button>
+                                        <button class="col-12 bg-dark mb-1 rounded-pill pe-none"></button>
+                                    </div>
+                                    <div class="col-4">
+                                        <button class="col-12 bg-dark mb-1 rounded-pill pe-none"></button>
+                                        <button class="col-12 bg-dark mb-1 rounded-pill pe-none"></button>
+                                        <button class="col-12 bg-dark mb-1 rounded-pill pe-none"></button>
+                                        <button class="col-12 bg-dark mb-1 rounded-pill pe-none"></button>
+                                        <button class="col-12 bg-dark mb-1 rounded-pill pe-none"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Marco Inferior -->
+                        <div class="col-12 bg-dark py-3 mt-3">
+                            <p></p>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </main>
+
+        <!-- ###  SCRIPTS  ### -->
+        <script src="./css/bootstrap-5.1.1-dist/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
+        <script src="./js/app.js"></script>
+    </body>
+</html>

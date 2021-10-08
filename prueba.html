@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="mx-0 px-0">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Javier García - Red Fox Argentina">
+        <link rel="stylesheet" href="./css/bootstrap-5.1.1-dist/bootstrap-5.1.1-dist/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="./css/style.css"> -->
+        <title>Prtero Eléctrico</title>
+    </head>
+
+    <!--  CONSIGNA:
+        ~ 2 visores, uno para Piso (2 dígitos), otro para Depto (1 dígito).
+        ~ Pisos del 00 al 42.
+        ~ Deptos del 1 al 8.
+        ~ BTN LLAMAR muestra mensaje visor ppal "Lamando al dpto NN, piso N".
+        ~ BTN BORRAR borra todos los visores.
+        ~ Si piso y/o dpto no existe, mostrar mensaje error en visor ppal.
+    -->
+
+    <body class="mx-0 px-0">
+        <header>
+            <nav class="navbar navbar-dark navbar-expand-md bg-dark fixed-top p-3">
+                <div class="container">
+                    <a class="text-decoration-none" href="index.html">
+                        <span class="navbar-brand fs-3">Práctica <strong class="text-warning">JS</strong></span>
+                    </a>
+                </div>
+            </nav>
+        </header>
+        
+        <main class="mt-5 pt-4">
+            <section class="pt-5 mx-2">
+                <form action="" method="post" class="container">
+                    <!-- <div class="col-9"> -->
+                        
+                        <div class="row row-col-1 justify-content-center">
+                            <!-- Marca -->
+                            <div class="col-12 text-left">
+                                <p class="mb-0"><strong><i>ComIT</i></strong></p>
+                            </div>
+                            <!-- Cámara -->
+                            <div class="col-1 px-0">
+                                <button class="border border-dark border-5 rounded-circle bg-primary p-2" width="100px"></button>
+                            </div>
+                        </div>
+
+                        <!-- Panel Central -->
+                        <div class="row justify-content-center">
+                            <!-- visores -->
+                            <div class="col-2 justify-content-left">
+                                <input type="text" value="_ _" readonly>
+                            </div>
+                            <div class="col-2"></div>
+                            <div class="col-2 justify-content-right">
+                                <input type="text" value="_" readonly>
+                            </div>
+                        </div>
+
+                    <!-- </div> -->
+
+
+
+                </form>
+            </section>
+        </main>
+
+        <!-- ###  SCRIPTS  ### -->
+        <script src="./css/bootstrap-5.1.1-dist/bootstrap-5.1.1-dist/js/bootstrap.bundle.min.js"></script>
+        <script src="./js/app.js"></script>
+    </body>
+</html>
